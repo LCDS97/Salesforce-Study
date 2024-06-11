@@ -16,8 +16,6 @@ public with sharing class SpoonacularIntegrationHandler {
         request.setHeader('Content-Type', 'application/json');
 
         HttpResponse response = http.send(request);
-        System.debug('request: ' + request);
-        System.debug('response: ' + response);
         System.debug('response code ' + response.getStatusCode());
 
         if(response.getStatusCode() == 200){
@@ -28,7 +26,7 @@ public with sharing class SpoonacularIntegrationHandler {
         }
     }
 
-    public static void getRecipeInformation(String recipeId) {
+    public static void getRecipeInformationById(String recipeId) {
         Http http = new Http();
 
         HttpRequest request = new HttpRequest();
@@ -46,8 +44,6 @@ public with sharing class SpoonacularIntegrationHandler {
         request.setHeader('Content-Type', 'application/json');
 
         HttpResponse response = http.send(request);
-        // System.debug('request: ' + request);
-        // System.debug('response: ' + response);
         System.debug('response code ' + response.getStatusCode());
 
         if(response.getStatusCode() == 200){
@@ -76,8 +72,6 @@ public with sharing class SpoonacularIntegrationHandler {
         request.setHeader('Content-Type', 'application/json');
 
         HttpResponse response = http.send(request);
-        // System.debug('request: ' + request);
-        // System.debug('response: ' + response);
         System.debug('response code ' + response.getStatusCode());
 
         if(response.getStatusCode() == 200){
