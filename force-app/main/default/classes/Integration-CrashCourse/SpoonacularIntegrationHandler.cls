@@ -57,4 +57,34 @@ public with sharing class SpoonacularIntegrationHandler {
             System.debug('Error: ' + response.getBody());
         }
     }
+
+    public static void getRecipeByIngredients(List<String> ingredients) {
+        Http http = new Http();
+
+        HttpRequest request = new HttpRequest();
+        SpoonacularCallout__mdt config = SpoonacularIntegrationDAO.getInstance().getByLabel('Recipe By Ingredients');
+        String apiURL = config.Endpoint__c + '?ingredients=' + ingredients;
+        System.debug('apiURL after: ' + apiURL);
+        String calloutMethod = config.Method__c;
+        String apiKey = '&apiKey=' + config.ApiKey__c;
+        apiURL = apiURL + apiKey;
+        System.debug('apiKey: ' + apiKey);
+
+
+        request.setMethod(calloutMethod);
+        request.setEndpoint(apiURL);
+        request.setHeader('Content-Type', 'application/json');
+
+        HttpResponse response = http.send(request);
+        // System.debug('request: ' + request);
+        // System.debug('response: ' + response);
+        System.debug('response code ' + response.getStatusCode());
+
+        if(response.getStatusCode() == 200){
+            System.debug('response ' + response.getBody());
+        }
+        else {
+            System.debug('Error: ' + response.getBody());
+        }
+    }
 }

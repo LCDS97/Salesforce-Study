@@ -6,4 +6,8 @@
 //     SFDX: Execute Anonymous Apex with Editor Contents
 
 // SpoonacularIntegrationHandler.getRandomRecipe();
-SpoonacularIntegrationHandler.getRecipeInformation('123');
+// SpoonacularIntegrationHandler.getRecipeInformation('123');
+List<String> lstIngredients = new List<String>();
+lstIngredients.add('sugar');
+lstIngredients.add('banana');
+SpoonacularIntegrationHandler.getRecipeByIngredients(lstIngredients);
