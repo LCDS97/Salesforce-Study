@@ -1,5 +1,5 @@
 public with sharing class SpoonacularIntegrationHandler {
-    public static void getRandomRecipe() {
+    public static String getRandomRecipe() {
         Http http = new Http();
 
         HttpRequest request = new HttpRequest();
@@ -20,13 +20,15 @@ public with sharing class SpoonacularIntegrationHandler {
 
         if(response.getStatusCode() == 200){
             System.debug('response ' + response.getBody());
+            return response.getBody();
         }
         else {
             System.debug('Error: ' + response.getBody());
+            return response.getBody();
         }
     }
 
-    public static void getRecipeInformationById(String recipeId) {
+    public static String getRecipeInformationById(String recipeId) {
         Http http = new Http();
 
         HttpRequest request = new HttpRequest();
@@ -48,13 +50,15 @@ public with sharing class SpoonacularIntegrationHandler {
 
         if(response.getStatusCode() == 200){
             System.debug('response ' + response.getBody());
+            return response.getBody();
         }
         else {
             System.debug('Error: ' + response.getBody());
+            return response.getBody();
         }
     }
 
-    public static void getRecipeByIngredients(List<String> ingredients) {
+    public static String getRecipeByIngredients(String ingredients) {
         Http http = new Http();
 
         HttpRequest request = new HttpRequest();
@@ -76,9 +80,11 @@ public with sharing class SpoonacularIntegrationHandler {
 
         if(response.getStatusCode() == 200){
             System.debug('response ' + response.getBody());
+            return response.getBody();
         }
         else {
             System.debug('Error: ' + response.getBody());
+            return response.getBody();
         }
     }
 }
